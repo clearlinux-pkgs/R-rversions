@@ -4,7 +4,7 @@
 #
 Name     : R-rversions
 Version  : 1.0.2
-Release  : 14
+Release  : 15
 URL      : http://cran.r-project.org/src/contrib/rversions_1.0.2.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/rversions_1.0.2.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
