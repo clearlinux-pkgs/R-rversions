@@ -4,7 +4,7 @@
 #
 Name     : R-rversions
 Version  : 1.0.3
-Release  : 21
+Release  : 22
 URL      : http://cran.r-project.org/src/contrib/rversions_1.0.3.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/rversions_1.0.3.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
@@ -27,9 +27,11 @@ BuildRequires : clr-R-helpers
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1484548369
 
 %install
 rm -rf %{buildroot}
+export SOURCE_DATE_EPOCH=1484548369
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -39,7 +41,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
-R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library rversions
+R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library rversions
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
 export LANG=C
