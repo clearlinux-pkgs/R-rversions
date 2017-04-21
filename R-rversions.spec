@@ -4,14 +4,14 @@
 #
 Name     : R-rversions
 Version  : 1.0.3
-Release  : 24
+Release  : 25
 URL      : http://cran.r-project.org/src/contrib/rversions_1.0.3.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/rversions_1.0.3.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
 Group    : Development/Tools
 License  : MIT
-Requires: R-xml2
 Requires: R-curl
+Requires: R-xml2
 BuildRequires : R-curl
 BuildRequires : R-xml2
 BuildRequires : clr-R-helpers
@@ -26,12 +26,15 @@ BuildRequires : clr-R-helpers
 %setup -q -c -n rversions
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484548369
+export SOURCE_DATE_EPOCH=1492800938
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1484548369
+export SOURCE_DATE_EPOCH=1492800938
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -47,7 +50,7 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rversions
 
@@ -58,6 +61,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/rversions/INDEX
 /usr/lib64/R/library/rversions/LICENSE
 /usr/lib64/R/library/rversions/Meta/Rd.rds
+/usr/lib64/R/library/rversions/Meta/features.rds
 /usr/lib64/R/library/rversions/Meta/hsearch.rds
 /usr/lib64/R/library/rversions/Meta/links.rds
 /usr/lib64/R/library/rversions/Meta/nsInfo.rds
