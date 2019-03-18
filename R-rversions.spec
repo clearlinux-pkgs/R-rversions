@@ -4,14 +4,14 @@
 #
 Name     : R-rversions
 Version  : 1.0.3
-Release  : 51
+Release  : 52
 URL      : http://cran.r-project.org/src/contrib/rversions_1.0.3.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/rversions_1.0.3.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
 Group    : Development/Tools
 License  : MIT
-Requires: R-curl
-Requires: R-xml2
+Requires: R-Rcpp
+BuildRequires : R-Rcpp
 BuildRequires : R-curl
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
@@ -30,10 +30,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552856423
+export SOURCE_DATE_EPOCH=1552947046
 
 %install
-export SOURCE_DATE_EPOCH=1552856423
+export SOURCE_DATE_EPOCH=1552947046
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
