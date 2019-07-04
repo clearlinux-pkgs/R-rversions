@@ -4,27 +4,23 @@
 #
 Name     : R-rversions
 Version  : 2.0.0
-Release  : 55
+Release  : 56
 URL      : https://cran.r-project.org/src/contrib/rversions_2.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rversions_2.0.0.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
 Group    : Development/Tools
 License  : MIT
+Requires: R-Rcpp
+Requires: R-curl
 Requires: R-xml2
+BuildRequires : R-Rcpp
+BuildRequires : R-curl
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
 
 %description
-[![Linux Build
-Status](https://travis-ci.org/r-hub/rversions.svg?branch=master)](https://travis-ci.org/r-hub/rversions)
-[![Windows Build
-status](https://ci.appveyor.com/api/projects/status/github/r-hub/rversions?svg=true)](https://ci.appveyor.com/project/gaborcsardi/rversions)
-[![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/rversions)](http://r-pkg.org/pkg/rversions)
-[![CRAN
-version](http://www.r-pkg.org/badges/version/rversions)](http://r-pkg.org/pkg/rversions)
-[![CRAN
-checks](https://cranchecks.info/badges/summary/rversions)](https://cran.r-project.org/web/checks/check_results_rversions.html)
+versions 'r-release' and 'r-oldrel' refer to, and also all
+    previous 'R' versions and their release dates.
 
 %prep
 %setup -q -c -n rversions
@@ -33,13 +29,13 @@ checks](https://cranchecks.info/badges/summary/rversions)](https://cran.r-projec
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1560137654
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562212984
 
 %install
-export SOURCE_DATE_EPOCH=1560137654
+export SOURCE_DATE_EPOCH=1562212984
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -68,7 +64,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
