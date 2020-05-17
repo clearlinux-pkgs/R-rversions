@@ -4,7 +4,7 @@
 #
 Name     : R-rversions
 Version  : 2.0.1
-Release  : 61
+Release  : 62
 URL      : https://cran.r-project.org/src/contrib/rversions_2.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rversions_2.0.1.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
@@ -17,25 +17,27 @@ BuildRequires : R-xml2
 BuildRequires : buildreq-R
 
 %description
-# rversions <a href='https://r-hub.github.io/rversions'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
+versions 'r-release' and 'r-oldrel' refer to, and also all previous
+    'R' versions and their release dates.
 
 %prep
 %setup -q -c -n rversions
+cd %{_builddir}/rversions
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575398221
+export SOURCE_DATE_EPOCH=1589757721
 
 %install
-export SOURCE_DATE_EPOCH=1575398221
+export SOURCE_DATE_EPOCH=1589757721
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
