@@ -4,7 +4,7 @@
 #
 Name     : R-rversions
 Version  : 2.0.2
-Release  : 69
+Release  : 70
 URL      : https://cran.r-project.org/src/contrib/rversions_2.0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rversions_2.0.2.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
