@@ -4,7 +4,7 @@
 #
 Name     : R-rversions
 Version  : 2.1.2
-Release  : 85
+Release  : 86
 URL      : https://cran.r-project.org/src/contrib/rversions_2.1.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rversions_2.1.2.tar.gz
 Summary  : Query 'R' Versions, Including 'r-release' and 'r-oldrel'
